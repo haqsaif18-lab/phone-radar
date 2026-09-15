@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- SEO -->
+    <title>PhoneFinder India - Best Phones Under ₹15,000</title>
+    <meta name="description"
+          content="Find the best smartphones under ₹15,000 in India. Compare specifications, prices, features, pros, cons and reviews.">
+    <meta name="keywords"
+          content="phones under 15000, best phones under 15000, smartphones under 15000 India, phone reviews India">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: white;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #111827;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #263244;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #0f172a, #172554);
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            margin-bottom: 15px;
+        }
+
+        .hero span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            color: #cbd5e1;
+            max-width: 650px;
+            margin: auto;
+            font-size: 18px;
+        }
+
+        .search {
+            margin: 30px auto;
+            max-width: 600px;
+            display: flex;
+        }
+
+        .search input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 8px 0 0 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search button {
+            padding: 15px 25px;
+            border: none;
+            background: #38bdf8;
+            cursor: pointer;
+            border-radius: 0 8px 8px 0;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 60px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .phone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .phone-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 15px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .phone-card:hover {
+            transform: translateY(-7px);
+            border-color: #38bdf8;
+        }
+
+        .phone-image {
+            height: 180px;
+            background: #0f172a;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .phone-card h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            color: #38bdf8;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .rating {
+            color: #facc15;
+            margin: 8px 0;
+        }
+
+        .specs {
+            margin: 15px 0;
+            color: #cbd5e1;
+        }
+
+        .specs div {
+            padding: 5px 0;
+            border-bottom: 1px solid #334155;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            flex: 1;
+            text-align: center;
+            padding: 11px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .review-btn {
+            background: #38bdf8;
+            color: #082f49;
+        }
+
+        .compare-btn {
+            background: #334155;
+            color: white;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .feature {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .feature h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .about {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            color: #cbd5e1;
+        }
+
+        footer {
+            background: #020617;
+            padding: 30px;
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        #noResults {
+            text-align: center;
+            color: #f87171;
+            display: none;
+            margin-top: 20px;
+        }
+
+        @media(max-width: 700px) {
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            section {
+                padding: 45px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">📱 PhoneFinder</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#phones">Phones</a>
+        <a href="#features">Categories</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <h1>Find Your <span>Perfect Phone</span></h1>
+
+    <p>
+        Compare smartphones, specifications, prices and reviews
+        before buying your next phone.
+    </p>
+
+    <div class="search">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search phones..."
+            onkeyup="searchPhones()">
+
+        <button onclick="searchPhones()">Search</button>
+    </div>
+
+</section>
+
+
+<!-- PHONES -->
+
+<section id="phones">
+
+    <h2 class="section-title">
+        🔥 Best Phones Under ₹15,000
+    </h2>
+
+    <div class="phone-grid" id="phoneGrid">
+
+
+        <!-- PHONE 1 -->
+
+        <div class="phone-card">
+
+            <div class="phone-image">
+                📱
+            </div>
+
+            <h3>Phone A</h3>
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐ 4.5/5
+            </div>
+
+            <div class="price">
+                ₹14,999
+            </div>
+
+            <div class="specs">
+                <div>📱 Display: 6.6" FHD+</div>
+                <div>⚡ Processor: Octa-Core</div>
+                <div>📸 Camera: 50MP</div>
+                <div>🔋 Battery: 5000mAh</div>
+                <div>💾 RAM: 8GB</div>
+            </div>
+
+            <p>
+                A balanced smartphone for gaming,
+                photography and everyday use.
+            </p>
+
+            <div class="buttons">
+                <a href="#" class="btn review-btn">
+                    Read Review
+                </a>
+
+                <a href="#" class="btn compare-btn">
+                    Compare
+                </a>
+            </div>
+
+        </div>
+
+
+        <!-- PHONE 2 -->
+
+        <div class="phone-card">
+
+            <div class="phone-image">
+                📱
+            </div>
+
+            <h3>Phone B</h3>
+
+            <div class="rating">
+                ⭐⭐⭐⭐☆ 4.2/5
+            </div>
+
+            <div class="price">
+                ₹13,999
+            </div>
+
+            <div class="specs">
+                <div>📱 Display: 6.7" AMOLED</div>
+                <div>⚡ Processor: Octa-Core</div>
+                <div>📸 Camera: 50MP</div>
+                <div>🔋 Battery: 5000mAh</div>
+                <div>💾 RAM: 8GB</div>
+            </div>
+
+            <p>
+                Great choice for people who want
+                a good display and long battery life.
+            </p>
+
+            <div class="buttons">
+                <a href="#" class="btn review-btn">
+                    Read Review
+                </a>
+
+                <a href="#" class="btn compare-btn">
+                    Compare
+                </a>
+            </div>
+
+        </div>
+
+
+        <!-- PHONE 3 -->
+
+        <div class="phone-card">
+
+            <div class="phone-image">
+                📱
+            </div>
+
+            <h3>Phone C</h3>
+
+            <div class="rating">
+                ⭐⭐⭐⭐☆ 4.3/5
+            </div>
+
+            <div class="price">
+                ₹11,999
+            </div>
+
+            <div class="specs">
+                <div>📱 Display: 6.5" FHD+</div>
+                <div>⚡ Processor: Octa-Core</div>
+                <div>📸 Camera: 50MP</div>
+                <div>🔋 Battery: 5000mAh</div>
+                <div>💾 RAM: 6GB</div>
+            </div>
+
+            <p>
+                An affordable option for students
+                and everyday smartphone users.
+            </p>
+
+            <div class="buttons">
+                <a href="#" class="btn review-btn">
+                    Read Review
+                </a>
+
+                <a href="#" class="btn compare-btn">
+                    Compare
+                </a>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div id="noResults">
+        No phones found. Try another search.
+    </div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section id="features">
+
+    <h2 class="section-title">
+        What Can You Find Here?
+    </h2>
+
+    <div class="features">
+
+        <div class="feature">
+            <h3>💰 Budget Phones</h3>
+            <p>
+                Find smartphones under ₹10K,
+                ₹15K and ₹20K.
+            </p>
+        </div>
+
+        <div class="feature">
+            <h3>🎮 Gaming Phones</h3>
+            <p>
+                Discover phones suitable
+                for gaming and performance.
+            </p>
+        </div>
+
+        <div class="feature">
+            <h3>📸 Camera Phones</h3>
+            <p>
+                Compare smartphones
+                with better cameras.
+            </p>
+        </div>
+
+        <div class="feature">
+            <h3>🔋 Battery Phones</h3>
+            <p>
+                Find phones with
+                long-lasting batteries.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <h2 class="section-title">
+        About PhoneFinder
+    </h2>
+
+    <div class="about">
+
+        <p>
+            PhoneFinder is a smartphone information website
+            designed to help users compare phones before buying.
+            We provide specifications, prices, features,
+            pros, cons and easy-to-understand reviews.
+        </p>
+
+        <br>
+
+        <p>
+            Our goal is to make choosing a smartphone
+            simpler for everyone.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>© 2026 PhoneFinder India</p>
+
+    <p>
+        Smartphone information and reviews
+    </p>
+
+</footer>
+
+
+<script>
+
+function searchPhones() {
+
+    let input =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    let phones =
+        document.querySelectorAll(".phone-card");
+
+    let found = false;
+
+    phones.forEach(function(phone) {
+
+        let text =
+            phone.innerText.toLowerCase();
+
+        if(text.includes(input)) {
+
+            phone.style.display = "block";
+            found = true;
+
+        } else {
+
+            phone.style.display = "none";
+
+        }
+
+    });
+
+    document.getElementById("noResults").style.display =
+        found ? "none" : "block";
+}
+
+</script>
+
+</body>
+</html>
